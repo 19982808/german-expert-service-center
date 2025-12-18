@@ -41,13 +41,12 @@ header {
 }
 
 header .logo {
-  height: 160px;     /* increase height */
-  width: auto;       /* keep correct proportions */
-  max-width: 220px;  /* prevents it from being too wide */
-}
+  height: 100px;     /* increase height */
+  width: 400px;      /* keep correct proportions */}
 header nav a {
-  margin-left: 1.5rem;
+  margin-left: 0.8rem;
   font-weight: 500;
+ font-size: 0.85rem; /* reduce text size */
   transition: color 0.3s;
 }
 

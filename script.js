@@ -13,12 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      HERO SLIDER (FADE EFFECT)
   ========================= */
+window.addEventListener("load", () => {
   const slides = document.querySelectorAll(".slide");
   const prevBtn = document.querySelector(".hero button.prev");
   const nextBtn = document.querySelector(".hero button.next");
   const dots = document.querySelectorAll(".dot");
   let currentSlide = 0;
-  let slideInterval;
+  let interval;
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
@@ -39,13 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentSlide);
   }
 
-  nextBtn.addEventListener("click", () => {
-    nextSlide();
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
     resetInterval();
   });
 
-  prevBtn.addEventListener("click", () => {
-    prevSlide();
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
     resetInterval();
   });
 
@@ -58,17 +59,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function startInterval() {
-    slideInterval = setInterval(nextSlide, 5000);
+    interval = setInterval(nextSlide, 5000);
   }
 
   function resetInterval() {
-    clearInterval(slideInterval);
+    clearInterval(interval);
     startInterval();
   }
 
-  // Initialize hero slider
+  // Initialize slider
   showSlide(currentSlide);
   startInterval();
+});
+
+
+
+
+
+  
 
   /* =========================
      BOOKING FORM - WHATSAPP
@@ -138,3 +146,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+

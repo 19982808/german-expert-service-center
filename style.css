@@ -47,8 +47,8 @@ header {
 }
 
 header .logo {
-  height: 80px;
-  width: auto;
+  height: 250px;
+  width: 300px;
 }
 
 header nav a {
@@ -399,3 +399,4 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+

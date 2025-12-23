@@ -103,7 +103,7 @@ header nav a:hover {
 .slides {
   position: relative;
   height: 100%;
-  width: 100%;
+  width: 200%;
 }
 
 /* EACH SLIDE */
@@ -402,6 +402,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 

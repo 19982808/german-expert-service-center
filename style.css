@@ -33,286 +33,143 @@ h2 {
   color: #1a1a1a;
 }
 
-/* =========================
-   HEADER & NAV
-========================= */
+/* ================= HEADER ================= */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 3%;
   background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 header .logo {
-  max-height: 60px;
-}
-
-header nav {
-  display: flex;
-  gap: 1rem;
+  height: 100px;
+  width: 400px;
 }
 
 header nav a {
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  transition: background 0.3s, color 0.3s;
+  margin-left: 0.8rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: color 0.3s;
 }
 
 header nav a:hover {
-  background: #e63946;
-  color: #fff;
+  color: #007bff;
 }
 
-/* =========================
-   HAMBURGER MENU
-========================= */
-#burger {
+/* ================= HAMBURGER MENU ================= */
+.burger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 18px;
+  font-size: 2rem;
   cursor: pointer;
 }
 
-#burger div {
-  height: 3px;
-  width: 100%;
-  background: #1a1a1a;
-  border-radius: 2px;
-  transition: all 0.3s;
+@media(max-width:768px){
+  .burger {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
 }
 
-nav.mobile {
-  display: none;
-  flex-direction: column;
-  background: #fff;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 200px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-nav.mobile a {
-  padding: 1rem;
-  border-bottom: 1px solid #eee;
-}
-
-nav.mobile.show {
-  display: flex;
-}
-
-/* =========================
-   HERO SLIDER
-========================= */
+/* ================= HERO SLIDER ================= */
 .hero {
   position: relative;
-  width: 100%;
-  height: 80vh;
+  height: 90vh;
   overflow: hidden;
 }
 
-.slides .slide {
-  position: absolute;
-  width: 100%;
+.slides {
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
-.slides .slide.active {
-  opacity: 1;
+.slide {
+  min-width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: none;
+}
+
+.slide.active {
+  display: block;
 }
 
 .hero-content {
   position: absolute;
-  bottom: 20%;
-  left: 5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  text-shadow: 0 0 15px rgba(0,0,0,0.7);
 }
 
 .hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
-button.prev, button.next {
+.hero button.prev,
+.hero button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.3);
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
-  font-size: 2rem;
-  cursor: pointer;
-  border-radius: 5px;
+  border-radius: 50%;
 }
 
-button.prev { left: 1rem; }
-button.next { right: 1rem; }
+.hero button.prev { left: 20px; }
+.hero button.next { right: 20px; }
 
 .dots {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 5px;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
 }
 
 .dot {
+  display: inline-block;
   width: 12px;
   height: 12px;
+  margin: 0 5px;
   background: rgba(255,255,255,0.5);
   border-radius: 50%;
   cursor: pointer;
 }
 
 .dot.active {
-  background: #e63946;
-}
-
-/* =========================
-   ABOUT
-========================= */
-#about {
-  padding: 4rem 2rem;
   background: #fff;
-  text-align: center;
 }
 
-#about p {
-  max-width: 800px;
-  margin: 1rem auto;
-  line-height: 1.8;
-}
-
-.download-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  background: #e63946;
-  color: #fff;
-  padding: 0.7rem 1.5rem;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-
-.download-btn:hover {
-  background: #d62828;
-}
-
-/* =========================
-   SERVICES
-========================= */
-#services {
-  padding: 4rem 2rem;
-}
-
-.service-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.service-card {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-}
-
-/* =========================
-   BOOKING FORM
-========================= */
-#booking {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-#bookingForm {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-#bookingForm input, #bookingForm select, #bookingForm textarea {
-  padding: 0.8rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
-
-#bookingForm button {
-  background: #e63946;
-  color: #fff;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-#bookingForm button:hover {
-  background: #d62828;
-}
-
-.popup {
-  display: none;
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #e63946;
-  color: #fff;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  z-index: 999;
-}
-
-/* =========================
-   LOCATIONS
-========================= */
-#locations {
-  padding: 4rem 2rem;
-}
-
-#locations iframe {
-  width: 100%;
-  height: 300px;
-  margin-bottom: 2rem;
-  border: none;
-  border-radius: 10px;
-}
-
-/* =========================
-   REVIEWS
-========================= */
+/* ================= REVIEWS ================= */
 #reviews {
-  padding: 4rem 2rem;
+  padding: 4rem 3%;
   background: #fff;
   text-align: center;
 }
@@ -332,260 +189,54 @@ button.next { right: 1rem; }
   margin: 0.5rem 0;
 }
 
-/* =========================
-   GALLERY
-========================= */
-#gallery {
-  padding: 4rem 2rem;
+/* ================= BOOKING ================= */
+#booking {
+  padding: 4rem 3%;
+  background: #f1f1f1;
+  text-align: center;
 }
 
-.gallery-grid {
+#booking form {
+  max-width: 600px;
+  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
 
-.gallery-item img,
-.gallery-item video {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* =========================
-   CONTACT
-========================= */
-.contact {
-  padding: 4rem 2rem;
-  background: #f1f1f1;
-  text-align: center;
-}
-
-.contact-info p {
-  margin-bottom: 0.5rem;
-}
-
-.contact-buttons a {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-  background: #25D366;
-  color: #fff;
-  transition: 0.3s;
-}
-
-.contact-buttons a:hover {
-  background: #128C7E;
-}
-
-.social-icons {
-  margin-top: 1rem;
-}
-
-.social-icons a {
-  margin: 0 0.5rem;
-  display: inline-block;
-}
-
-.social-icons img {
-  height: 30px;
-}
-
-/* =========================
-   PAYMENTS
-========================= */
-.payments {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: #fff;
-}
-
-.payment-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.payment-card {
-  background: #f1f1f1;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 280px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  text-align: left;
-}
-
-.payment-logo {
-  width: 80px;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.payment-card button {
-  margin-top: 0.5rem;
-  width: 100%;
-  background: #e63946;
-  border: none;
-  color: #fff;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-
-.payment-card button:hover {
-  background: #d62828;
-}
-
-.whatsapp-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  background: #25D366;
-  color: #fff;
-  padding: 0.7rem 1.5rem;
-  border-radius: 5px;
-}
-
-.whatsapp-btn:hover {
-  background: #128C7E;
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 2rem 2rem;
-}
-
-/* =========================
-   CHATBOT
-========================= */
-#chatbot-container {
-  position: fixed;
-  bottom: 80px;
-  right: 30px;
-  width: 300px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-  display: none;
-  flex-direction: column;
-  z-index: 9999;
-}
-
-#chatbot-header {
-  background: #e63946;
-  color: #fff;
-  padding: 0.8rem 1rem;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-}
-
-#chatbot-messages {
-  padding: 1rem;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.bot-message, .user-message {
-  margin-bottom: 0.7rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-
-.bot-message {
-  background: #f1f1f1;
-  text-align: left;
-}
-
-.user-message {
-  background: #e63946;
-  color: #fff;
-  text-align: right;
-}
-
-#chatbot-input-area {
-  display: flex;
-  padding: 0.5rem;
-  border-top: 1px solid #ccc;
-}
-
-#chatbot-input-area input {
-  flex: 1;
-  padding: 0.5rem;
+#booking input, #booking select, #booking textarea, #booking button {
+  padding: 0.8rem;
+  font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-#chatbot-input-area button {
-  margin-left: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: #e63946;
+#booking button {
+  background: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  transition: 0.3s;
 }
 
-#chatbot-options {
-  display: flex;
-  justify-content: space-around;
-  padding: 0.5rem;
-  flex-wrap: wrap;
+#booking button:hover {
+  background: #0056b3;
 }
 
-#chatbot-options button {
-  margin: 0.3rem;
-  flex: 1;
-  padding: 0.5rem;
-  background: #f1f1f1;
-  border: none;
-  border-radius: 5px;
-}
-
-/* CHATBOT TOGGLE */
-#chatbot-toggle {
+.popup {
+  display: none;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #e63946;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007bff;
   color: #fff;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 9999;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  z-index: 999;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media(max-width: 1024px){
+/* ================= MEDIA QUERIES ================= */
+@media(max-width:768px){
   .service-grid, .gallery-grid, .payment-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  }
-}
-
-@media(max-width:768px) {
-  header nav {
-    display: none;
-  }
-  #burger {
-    display: flex;
-  }
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
-  .hero-content p {
-    font-size: 1rem;
+    grid-template-columns: 1fr;
   }
 }

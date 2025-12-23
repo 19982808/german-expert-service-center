@@ -102,9 +102,11 @@ header nav a:hover {
 
 .slides {
   position: relative;
-  height: 300%;
-  width: 300%;
+  height: 90vh; /* or 100vh if you want full viewport height */
+  width: 100%;
+  overflow: hidden;
 }
+
 
 /* EACH SLIDE */
 .slide {
@@ -112,7 +114,7 @@ header nav a:hover {
   inset: 0;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain; /* FULL IMAGE – NO CROPPING */
+  background-size: cover; /* Fill the container without leaving gaps */
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -540,6 +542,7 @@ footer {
 #chatbot-toggle:hover {
   transform: scale(1.1);
 }
+
 
 
 

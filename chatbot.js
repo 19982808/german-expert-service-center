@@ -76,11 +76,6 @@ function botReply(message) {
 
   appendMessage(reply, "bot");
 }
-const chatbotToggle = document.getElementById('chatbot-toggle');
-const chatbotContainer = document.getElementById('chatbot-container');
-const chatbotClose = document.getElementById('chatbot-close');
-const chatbotSend = document.getElementById('chatbot-send');
-const chatbotInput = document.getElementById('chatbot-input');
 
 // Toggle chatbot visibility
 chatbotToggle.addEventListener('click', () => {
